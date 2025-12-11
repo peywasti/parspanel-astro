@@ -1,59 +1,20 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Pars Panel</title>
-		<style>
-      :root {
-        --bg-color: #f9fafb;
-        --text-color: #111827;
-        --accent-color: #2563eb;
-        --font-family: "Inter", system-ui, sans-serif;
-      }
-
-	  @media (prefers-color-scheme: dark) {
-        :root {
-          --bg-color: #0f172a;
-          --text-color: #f8fafc;
-          --subtext-color: #94a3b8;
-          --accent-color: #3b82f6;
-        }
-      }
-
-      body {
-        margin: 0;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        font-family: var(--font-family);
-      }
-
-      h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-      }
-
-      p {
-        font-size: 1.2rem;
-        color: #4b5563;
-      }
-    </style>
-	</head>
-	<body>
-		<img src="./favicon.svg" width="90" alt="Pars Panel Logo">
-		<h1>Pars Panel</h1>
-		<p>Website is under constracution.</p>
-	</body>
-</html>
+<Layout title="پارس پنل" description="راهکارهای حرفه‌ای وب و خدمات دیجیتال برای نیازهای کسب‌وکار شما">
+  <div class="flex flex-col justify-center items-center text-center min-h-[60vh] px-4">    
+    <h1 class="text-5xl font-bold mb-4 text-gray-900 dark:text-white">پارس پانل</h1>
+    <p class="text-xl text-gray-600 dark:text-slate-400 mb-8 max-w-2xl leading-relaxed">
+      نمایندگی فروش ساندویچ پانل فولادغرب
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a href="/products" class="border border-gray-300 dark:border-slate-600 hover:border-blue-600 dark:hover:border-blue-400 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-6 py-3 rounded-lg font-medium transition-colors">
+        محصولات
+      </a>
+      <a href="/contact" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+        تماس با ما
+      </a>      
+    </div>
+  </div>
+</Layout>
