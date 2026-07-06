@@ -2,19 +2,167 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="پارس پنل" description="راهکارهای حرفه‌ای وب و خدمات دیجیتال برای نیازهای کسب‌وکار شما">
-  <div class="flex flex-col justify-center items-center text-center min-h-[60vh] px-4">    
-    <h1 class="text-5xl font-bold mb-4 text-gray-900 dark:text-white">پارس پانل</h1>
-    <p class="text-xl text-gray-600 dark:text-slate-400 mb-8 max-w-2xl leading-relaxed">
-      نمایندگی فروش ساندویچ پانل فولادغرب
-    </p>
-    <div class="flex flex-col sm:flex-row gap-4">
-      <a href="/products" class="border border-gray-300 dark:border-slate-600 hover:border-blue-600 dark:hover:border-blue-400 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-6 py-3 rounded-lg font-medium transition-colors">
-        محصولات
-      </a>
-      <a href="/contact" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
-        تماس با ما
-      </a>      
+<Layout title="پارس پنل - فروش ساندویچ پانل" description="نمایندگی فروش ساندویچ پانل سقفی و دیواری پلی یورتان فولادغرب - قیمت مناسب، تحویل به موقع، گارانتی کیفیت">
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-800 dark:to-slate-900 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+        فروش ساندویچ پانل
+      </h1>
+      <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
+        نمایندگی فروش ساندویچ پانل سقفی و دیواری پلی یورتان فولادغرب
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg">
+          درخواست قیمت
+        </a>
+        <a href="#products" class="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
+          مشاهده محصولات
+        </a>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="py-16 bg-white dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+        محصولات پارس پانل
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Roof Panel -->
+        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+          <img src="/images/products/roof-panel.jpg" alt="ساندویچ پانل سقفی" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">ساندویچ پانل سقفی</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm">پانل سقفی با کیفیت بالا برای پوشش سقف سالن‌های صنعتی</p>
+            <a href="/products/roof-panel" class="inline-block mt-4 text-blue-600 hover:text-blue-700 font-medium">
+              اطلاعات بیشتر →
+            </a>
+          </div>
+        </div>
+
+        <!-- Wall Panel -->
+        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+          <img src="/images/products/wall-panel.jpg" alt="ساندویچ پانل دیواری" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">ساندویچ پانل دیواری</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm">پانل دیواری مقاوم برای دیوارهای داخلی و خارجی</p>
+            <a href="/products/wall-panel" class="inline-block mt-4 text-blue-600 hover:text-blue-700 font-medium">
+              اطلاعات بیشتر →
+            </a>
+          </div>
+        </div>
+
+        <!-- Cold Panel -->
+        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+          <img src="/images/products/cold-panel.jpg" alt="ساندویچ پانل سردخانه" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">ساندویچ پانل سردخانه</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm">پانل مخصوص سردخانه با عایق حرارتی بالا</p>
+            <a href="/products/cold-panel" class="inline-block mt-4 text-blue-600 hover:text-blue-700 font-medium">
+              اطلاعات بیشتر →
+            </a>
+          </div>
+        </div>
+
+        <!-- Clean Panel -->
+        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+          <img src="/images/products/clean-panel.jpg" alt="ساندویچ پانل اتاق تمیز" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">ساندویچ پانل اتاق تمیز</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm">پانل مخصوص اتاق‌های تمیز و محیط‌های بهداشتی</p>
+            <a href="/products/clean-panel" class="inline-block mt-4 text-blue-600 hover:text-blue-700 font-medium">
+              اطلاعات بیشتر →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-16 bg-gray-50 dark:bg-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div class="p-6">
+          <div class="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">قیمت مناسب</h3>
+          <p class="text-gray-600 dark:text-gray-300">فروش ساندویچ پانل به قیمت درب کارخانه</p>
+        </div>
+
+        <div class="p-6">
+          <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">تحویل در موعد مقرر</h3>
+          <p class="text-gray-600 dark:text-gray-300">تضمین تحویل سفارش در موعد مقرر</p>
+        </div>
+
+        <div class="p-6">
+          <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">گارانتی کیفیت</h3>
+          <p class="text-gray-600 dark:text-gray-300">تضمین کیفیت ساندویچ پانل</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="py-16 bg-white dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">پارس پانل</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+            توسعه‌ی صنعتی و افزایش رقابت اقتصادی در کنار مسائل زیست محیطی در زمینه ساخت ساختمان‌ها،استفاده از مصالح ساختمانی مدرن را برای سرمایه‌گذاران الزامی کرده است. ما مختخریم که سال‌ها در زمینه تولید و عرضه‌ی انواع مصالح ساختمانی سبک مانند پوشش فلزیسقف‌های شیروانی برای بناهای مسکونی و صنعتی فعالیت داریم.
+          </p>
+          <a href="/about" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+            درباره ما
+          </a>
+        </div>
+        <div class="text-center">
+          <img src="/favicon.svg" alt="پارس پانل" class="w-64 h-64 mx-auto opacity-80">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-blue-600 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold mb-4">برای پروژه‌ی جدیدتان با کارشناسان فنی ما مشورت کنید</h2>
+      <p class="text-xl mb-8 opacity-90">
+        کارشناسان فنی پارس پانل در زمینه ارائه اطلاعات در مورد سنادویچ پانل به منظور انتخاب بهترین گزینه در خدمت شما هستند.
+      </p>
+      <a href="/contact" class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg">
+        با ما تماس بگیرید
+      </a>
+    </div>
+  </section>
+
+  <!-- Customers Section -->
+  <section class="py-16 bg-gray-50 dark:bg-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+        برخی مشتریان ما
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+        <img src="/images/customers/shirinasal.png" alt="شیرین عسل" class="h-12 object-contain mx-auto opacity-70 hover:opacity-100 transition-opacity">
+        <img src="/images/customers/kuhsaran.png" alt="کوهسار" class="h-12 object-contain mx-auto opacity-70 hover:opacity-100 transition-opacity">
+        <img src="/images/customers/irankhodro.png" alt="ایران خودرو" class="h-12 object-contain mx-auto opacity-70 hover:opacity-100 transition-opacity">
+        <div class="text-center text-gray-500 dark:text-gray-400 text-sm">و سایر مشتریان</div>
+      </div>
+    </div>
+  </section>
 </Layout>
