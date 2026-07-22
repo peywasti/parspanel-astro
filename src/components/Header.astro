@@ -1,63 +1,200 @@
 ---
-const { title = "Pars Panel" } = Astro.props;
+const navLinks = [
+  { href: "/", label: "خانه" },
+  { href: "/about", label: "درباره ما" },
+  {
+    href: "/products",
+    label: "محصولات",
+    children: [
+      { href: "/products/roof-panel", label: "ساندویچ پانل سقفی" },
+      { href: "/products/wall-panel", label: "ساندویچ پانل دیواری" },
+      { href: "/products/cold-panel", label: "ساندویچ پانل سردخانه" },
+      { href: "/products/clean-panel", label: "ساندویچ پانل اتاق تمیز" },
+      { href: "/products/eco-panel", label: "ساندویچ پانل اکونومی" },
+    ],
+  },
+  { href: "/contact", label: "تماس با ما" },
+];
 ---
 
-<header class="bg-white dark:bg-slate-800 shadow-sm border-b border-gray-200 dark:border-slate-700">
+<header
+  class="sticky top-0 z-50 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md shadow-sm border-b border-gray-200 dark:border-slate-700 transition-all"
+>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <!-- Logo -->
-      <div class="flex items-center">
-        <img src="/favicon.svg" alt="لوگو پارس پنل" class="h-8 w-8 ml-3">
-        <h1 class="text-xl font-bold text-gray-900 dark:text-white">{title}</h1>        
-      </div>
+      <a href="/" class="flex items-center gap-2 group">
+        <div
+          class="w-9 h-9 bg-brand-600 rounded-lg flex items-center justify-center group-hover:bg-brand-700 transition-colors"
+        >
+          <svg
+            class="w-5 h-5 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+            ></path>
+          </svg>
+        </div>
+        <span class="text-xl font-bold text-gray-900 dark:text-white"
+          >پارس پانل</span
+        >
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-1">
+        {
+          navLinks.map((link) =>
+            link.children ? (
+              <div class="relative group">
+                <button class="flex items-center gap-1 text-gray-700 dark:text-gray-300 hover:text-brand-600 dark:hover:text-brand-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                  {link.label}
+                  <svg
+                    class="w-4 h-4 transition-transform group-hover:rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+                <div class="absolute right-0 mt-1 w-64 bg-white dark:bg-slate-700 rounded-xl shadow-xl border border-gray-100 dark:border-slate-600 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0">
+                  <div class="p-2">
+                    {link.children.map((child) => (
+                      <a
+                        href={child.href}
+                        class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-brand-50 dark:hover:bg-slate-600 hover:text-brand-600 dark:hover:text-brand-400 rounded-lg transition-colors"
+                      >
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-400" />
+                        {child.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <a
+                href={link.href}
+                class="text-gray-700 dark:text-gray-300 hover:text-brand-600 dark:hover:text-brand-400 px-3 py-2 rounded-md text-sm font-medium transition-colors relative after:absolute after:bottom-1 after:right-3 after:left-3 after:h-0.5 after:bg-brand-600 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-right"
+              >
+                {link.label}
+              </a>
+            ),
+          )
+        }
+      </nav>
 
       <!-- Mobile menu button -->
-      <div class="md:hidden">
-        <button type="button" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 p-2" aria-label="باز کردن منو">
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </div>
+      <button
+        type="button"
+        id="mobile-menu-btn"
+        class="md:hidden text-gray-700 dark:text-gray-300 hover:text-brand-600 dark:hover:text-brand-400 p-2 rounded-lg transition-colors"
+        aria-label="باز کردن منو"
+        aria-expanded="false"
+      >
+        <svg
+          id="menu-icon-open"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg
+          id="menu-icon-close"
+          class="h-6 w-6 hidden"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
 
-      <!-- Navigation -->
-      <nav class="hidden md:flex space-x-8 space-x-reverse">
-        <a href="/contact" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-          تماس با ما
-        </a>
-        <a href="/blog" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-          بلاگ
-        </a>
-        <div class="relative group">
-          <button class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center">
-            ساندویچ پانل
-            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-          <div class="absolute right-0 mt-2 w-56 bg-white dark:bg-slate-700 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-            <div class="py-1">
-              <a href="/products/roof-panel" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-600">ساندویچ پانل سقفی</a>
-              <a href="/products/wall-panel" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-600">ساندویچ پانل دیواری</a>
-              <a href="/products/cold-panel" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-600">ساندویچ پانل سردخانه</a>
-              <a href="/products/clean-panel" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-600">ساندویچ پانل اتاق تمیز</a>
-              <a href="/products/eco-panel" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-600">ساندویچ پانل یک رو ورق</a>
+  <!-- Mobile Navigation -->
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden border-t border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800"
+  >
+    <div class="px-4 py-3 space-y-1">
+      {
+        navLinks.map((link) =>
+          link.children ? (
+            <div class="space-y-1">
+              <span class="block px-3 py-2 text-sm font-semibold text-gray-900 dark:text-white">
+                {link.label}
+              </span>
+              {link.children.map((child) => (
+                <a
+                  href={child.href}
+                  class="block pr-6 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                >
+                  {child.label}
+                </a>
+              ))}
             </div>
-          </div>
-        </div>
-        <a href="/products/lsf" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-          ال اس اف
-        </a>
-        <a href="/products/conex" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-          کانکس
-        </a>
-        <a href="/about" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-          درباره ما
-        </a>
-        <a href="/" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-          خانه
-        </a>
-      </nav>
+          ) : (
+            <a
+              href={link.href}
+              class="block px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-gray-50 dark:hover:bg-slate-700 rounded-lg transition-colors"
+            >
+              {link.label}
+            </a>
+          ),
+        )
+      }
     </div>
   </div>
 </header>
+
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  const iconOpen = document.getElementById("menu-icon-open");
+  const iconClose = document.getElementById("menu-icon-close");
+
+  if (btn && menu && iconOpen && iconClose) {
+    btn.addEventListener("click", () => {
+      const isOpen = !menu.classList.contains("hidden");
+      menu.classList.toggle("hidden");
+      iconOpen.classList.toggle("hidden", !isOpen);
+      iconClose.classList.toggle("hidden", isOpen);
+      btn.setAttribute("aria-expanded", String(!isOpen));
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (e) => {
+      if (
+        !menu.contains(e.target as unknown as Node) &&
+        !btn.contains(e.target as unknown as Node) &&
+        !menu.classList.contains("hidden")
+      ) {
+        menu.classList.add("hidden");
+        iconOpen.classList.remove("hidden");
+        iconClose.classList.add("hidden");
+        btn.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+</script>
